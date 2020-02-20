@@ -11,14 +11,14 @@ namespace MyShop.DAL.InMemory
     public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
-        List<Product> products = new List<Product>();
+        List<Product> products;
 
         public ProductRepository()
         {
             products = cache["products"] as List<Product>;
-            if(products == null)
+            if (products == null)
             {
-                cache["products"] = new List<Product>();
+                products = new List<Product>();
             }
         }
 
@@ -37,6 +37,8 @@ namespace MyShop.DAL.InMemory
             Product productToUpdate = products.Find(p => p.ID == product.ID);
             if(productToUpdate != null)
             {
+                //products.Remove(productToUpdate);
+                //products.Add(product);
                 productToUpdate = product;
             }
             else
