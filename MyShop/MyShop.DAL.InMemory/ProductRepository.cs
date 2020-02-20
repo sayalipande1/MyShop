@@ -34,7 +34,7 @@ namespace MyShop.DAL.InMemory
 
         public void Update(Product product)
         {
-            Product productToUpdate = products.Find(p => p.ID == product.ID);
+            Product productToUpdate = products.Find(p => p.Id == product.Id);
             if(productToUpdate != null)
             {
                 //products.Remove(productToUpdate);
@@ -49,7 +49,7 @@ namespace MyShop.DAL.InMemory
 
         public Product Find(string Id)
         {
-            Product productToSearch = products.Find(p => p.ID == Id);
+            Product productToSearch = products.Find(p => p.Id == Id);
             if (productToSearch != null)
             {
                 return productToSearch;
@@ -67,7 +67,7 @@ namespace MyShop.DAL.InMemory
 
         public void Delete(string Id)
         {
-            Product productToDelete = products.Find(p => p.ID == Id);
+            Product productToDelete = products.Find(p => p.Id == Id);
             if (productToDelete != null)
             {
                 products.Remove(productToDelete);
